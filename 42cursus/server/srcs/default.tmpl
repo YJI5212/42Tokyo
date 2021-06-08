@@ -1,0 +1,39 @@
+server {
+	listen 80;
+	listen [::]:80;
+	server_name _;
+	return 301 https://$host$request_uri;
+}
+
+server{
+
+	listen 443 ssl ;
+	listen [::]:443 ssl ;
+	server_name wordpress.com;
+
+	root /var/www/html;
+	index index.html index.htm index.php index.nginx-debian.html;
+
+	ssl					on;
+	ssl_certificate		/etc/nginx/ssl/wordpress.crt;
+	ssl_certificate_key	/etc/nginx/ssl/wordpress.key;
+	ssl_protocols		SSLv3 TLSv1;
+	ssl_ciphers			HIGH:!ADH:!MD5;
+
+	location / {
+		autoindex {{ var "AUTOINDEX" | default "on" }};
+		try_files $uri $uri/ /index.php?$args;
+	}
+
+	location ~ \.php$ {
+		try_files $uri =404;
+		include /etc/nginx/fastcgi_params;
+		fastcgi_read_timeout 3600s;
+		fastcgi_buffer_size 128k;
+		fastcgi_buffers 4 128k;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+		fastcgi_index index.php;
+	}
+}
+
