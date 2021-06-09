@@ -20,4 +20,6 @@ C言語の標準関数+αを自作する課題です。
                                                : sizeバイト分だけs1とs2を比較しその差分を返す関数
   - `void *memmove(void *dst, const void *src, size_t size)`
                                                : srcからdstへsizeバイト分コピーする関数(メモリ領域が重複する場合もコピーは成功する)  
-  - `` : 
+  - `void *memset(void *buf, int c, size_t size)`
+                                               : bufをsizeバイト分だけ文字cで埋める関数  
+  - ``
