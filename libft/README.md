@@ -27,4 +27,12 @@ C言語の標準関数+αを自作する課題です。
   - `void ft_putendl_fd(char *str, int fd)`    : 文字列strの末尾に改行を施し指定されるfdに出力する関数  
   - `void ft_putnbr_fd(int n, int fd)`         : 数字nを指定されるfdに出力する関数  
   - `char **ft_split(const char **str, char c)`
-                                               : 
+                                               : 文字列strを文字cで分割し、各要素の文字列を配列として返す関数  
+  - `char *ft_strchr(const char *str, int c)`  : 文字列strの中に文字cが含まれるか否か判定する関数  
+  - `char *ft_strdup(const char *str)`         : 文字列strを新たなメモリ領域に複製する関数  
+  - `char *ft_strjoin(const char *s1, const char *s2)`
+                                               : 文字列s1の末尾に文字列s2を結合する関数  
+  - `size_t ft_strlen(const char *str)`        : 文字列strの長さを返す関数  
+  - `size_t ft_strlcpy(char *dst, char *src, size_t size)`
+                                               : srcからdstへ最大sizeバイト分コピーする関数  
+  - ``
