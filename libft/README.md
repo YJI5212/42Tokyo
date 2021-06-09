@@ -50,7 +50,7 @@ C言語の標準関数+αを自作する課題です。
                                                : 文字列strについてstart番目から長さlen分だけ複製する関数  
   - `int ft_tolower(int c)`                    : 文字cを大文字のアルファベットから小文字に変換する関数  
   - `int ft_toupper(int c)`                    : 文字cを小文字のアルファベットから大文字に変換する関数  
-  - ### 以下、bonusパート
+  ### 以下、bonusパート
   - `typedef struct s_list  
   {  
     void          *content;  
