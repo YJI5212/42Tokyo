@@ -7,4 +7,8 @@ C言語の標準関数+αを自作する課題です。
   - `int ft_isalnum(int c)`                    : 引数の文字cがアルファベットまたは数字に該当するか判定する関数  
   - `int ft_isalpha(int c)`                    : 引数の文字cがアルファベットに該当するか判定する関数  
   - `int ft_isascii(int c)`                    : 引数の文字cがasciiコードに該当するか判定する関数  
-  - `int ft_isdigit(int c)`                    : 引数の文字
+  - `int ft_isdigit(int c)`                    : 引数の文字cが整数に該当するか判定する関数
+  - `int ft_isprint(int c)`                    : 引数の文字cが表示文字に該当するか判定する関数
+  - `char *ft_itoa(int n)`                     : 引数の整数nを文字列に変換する関数  
+  - `void *ft_memccpy(void *buf1, void *buf2, int c, size_t n)`
+                                               : 
