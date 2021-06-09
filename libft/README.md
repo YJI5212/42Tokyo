@@ -22,4 +22,9 @@ C言語の標準関数+αを自作する課題です。
                                                : srcからdstへsizeバイト分コピーする関数(メモリ領域が重複する場合もコピーは成功する)  
   - `void *memset(void *buf, int c, size_t size)`
                                                : bufをsizeバイト分だけ文字cで埋める関数  
-  - ``
+  - `void ft_putchar_fd(char c, int fd)`       : 文字cを指定されるfdに出力する関数  
+  - `void ft_putstr_fd(char *str, int fd)`     : 文字列strを指定されるfdに出力する関数  
+  - `void ft_putendl_fd(char *str, int fd)`    : 文字列strの末尾に改行を施し指定されるfdに出力する関数  
+  - `void ft_putnbr_fd(int n, int fd)`         : 数字nを指定されるfdに出力する関数  
+  - `char **ft_split(const char **str, char c)`
+                                               : 
