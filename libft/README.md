@@ -35,4 +35,7 @@ C言語の標準関数+αを自作する課題です。
   - `size_t ft_strlen(const char *str)`        : 文字列strの長さを返す関数  
   - `size_t ft_strlcpy(char *dst, char *src, size_t size)`
                                                : srcからdstへ最大sizeバイト分コピーする関数  
-  - `size_t ft_strlcat()` : 
+  - `size_t ft_strlcat(char *dst, const char *src, size_t size)`
+                                               : srcをdst末尾に結合し最大でsizeバイトとする関数  
+  - `char *ft_strmapi(const char *s, char (*f)(unsigned int, char))`
+                                               : 
