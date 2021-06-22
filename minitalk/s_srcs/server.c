@@ -1,24 +1,19 @@
 #include "../includes/server.h"
 
-void	signal_handler(int signal)
+void	receive_bit3(t_server *info)
 {
-	g_signal = signal;
-}
+	char	*tmp;
 
-void	send_ack(t_server *info, int signal)
-{
-	usleep(700);
-	kill(info->client_pid, signal);
-}
-
-int	ft_pow(int num, int pow)
-{
-	int	ret;
-
-	ret = 1;
-	while (pow-- > 0)
-		ret *= num;
-	return (ret);
+	if (!*(info->str))
+		ft_strlcpy(info->str, info->c, ft_strlen(info->c) + 1);
+	else
+	{
+		tmp = info->str;
+		info->str = ft_strjoin((const char *)(info->str),
+				(const char *)(info->c));
+		free(tmp);
+	}
+	*(info->c) = 0;
 }
 
 void	receive_bit2(t_server *info)
@@ -44,8 +39,6 @@ void	receive_bit2(t_server *info)
 
 void	recieve_bit(t_server *info)
 {
-	char	*tmp;
-
 	if (g_signal == SIGUSR1)
 		*(info->c) += ft_pow(2, info->bit_count);
 	if (info->bit_count < 31)
@@ -58,15 +51,6 @@ void	recieve_bit(t_server *info)
 			receive_bit2(info);
 			return ;
 		}
-		if (!*(info->str))
-			ft_strlcpy(info->str, info->c, ft_strlen(info->c) + 1);
-		else
-		{
-			tmp = info->str;
-			info->str = ft_strjoin((const char *)(info->str),
-					(const char *)(info->c));
-			free(tmp);
-		}
-		*(info->c) = 0;
+		receive_bit3(info);
 	}
 }

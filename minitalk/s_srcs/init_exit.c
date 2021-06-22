@@ -2,8 +2,12 @@
 
 void	init_server(t_server *info)
 {
+	char	*server_pid;
+
+	server_pid = ft_itoa(getpid());
 	ft_putstr_fd(" SERVER PID : ", 1);
-	ft_putendl_fd(ft_itoa(getpid()), 1);
+	ft_putendl_fd(server_pid, 1);
+	free(server_pid);
 	g_signal = 0;
 	if (signal(SIGUSR1, signal_handler) == SIG_ERR
 		|| signal(SIGUSR2, signal_handler) == SIG_ERR
