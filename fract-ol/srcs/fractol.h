@@ -15,10 +15,11 @@
 #  define CLOSE_BOTTON 33
 #endif
 
-# define WIDTH 1200
-# define HEIGHT 800
+# define WIDTH	1200
+# define HEIGHT	800
 # define TITLE "fractol by yoinoue"
 
+# define BLACK	0x000000
 # define CRIMSON 0xDC143C
 
 # define RED	"\x1b[31m"
@@ -32,6 +33,14 @@ enum e_name
 	Julia
 };
 
+enum e_mouse
+{
+	LEFT_CLICK = 1,
+	RIGHT_CLICK = 2,
+	SCROLL_DOWN = 4,
+	SCROLL_UP = 5
+};
+
 typedef struct s_cmp
 {
 	int	x;
@@ -40,8 +49,8 @@ typedef struct s_cmp
 
 typedef struct s_cnb
 {
-	double	Re;
-	double	Im;
+	float	Re;
+	float	Im;
 }	t_cnb;
 
 typedef struct s_hsv
@@ -77,7 +86,7 @@ typedef struct s_info
 	t_image		img;
 	int			color;
 
-	int			zoom;
+	float		zoom;
 
 	t_cmp		cur;
 	t_cmp		offset;
@@ -117,7 +126,7 @@ void	make_mandelbrot(t_info *info, t_cnb z, t_cnb c);
 ** julia.c
 */
 void	set_julia_c(t_info *info);
-void	make_julia(t_info *info, t_cnb z, t_cnb c);
+void	make_julia(t_info *info, t_cnb z);
 /*
 ** color.c
 */

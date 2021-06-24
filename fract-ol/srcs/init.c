@@ -44,11 +44,12 @@ void	init_set_case(t_info *info)
 	if (info->name == Mandelbrot)
 	{
 		info->zoom = 80;
-		info->max = 280;
+		info->max = 300;
 	}
 	else if (info->name == Julia)
 	{
 		info->zoom = 300;
 		info->max = 300;
+		set_julia_c(info);
 	}
 }
